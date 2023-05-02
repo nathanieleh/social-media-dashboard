@@ -1,0 +1,5 @@
+@use '../util' as *; // keyword: namespacing
+
+.card {
+    padding: rem(20);
+}

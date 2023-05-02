@@ -1,0 +1,13 @@
+@use '../util' as *;
+
+.container {
+    padding: 0 rem(25); // 0 for top/bottom rem(25) for left and right
+    max-width: rem(1110);
+    margin: 0 auto rem(46);
+
+    @include breakpoint(large) { // automatically sets padding for mobile devices
+        padding: 0;
+    }
+}
+
+// no need for @media query since mobile will not be this wide

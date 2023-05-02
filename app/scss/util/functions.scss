@@ -1,0 +1,13 @@
+@use "sass:math";
+
+@function rem($pixels, $context: 16) {
+    @return (math.div($pixels, $context)) * 1rem;
+}
+
+// h1 {
+//     font-size: rem(30); <-- calculates pixels to rems
+// }
+
+// h1 {
+//     font-size: 1.875rem;
+// }
