@@ -1,5 +1,150 @@
 @use '../util' as *; // keyword: namespacing
 
-.card {
-    padding: rem(20);
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(30);
+
+    @include breakpoint(medium) { // tablet
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include breakpoint(large) { // pc
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card { // do not do more than 3 layers of nestings
+    position: relative;
+    overflow: hidden;
+    background: var(--dark-card);
+    color: var(--dark-text1);
+    padding: rem(25);
+    border-radius: rem(5);
+    text-align: center;
+    // flex: 1; each card has the same ratio divided amongst eachother
+
+    &--facebook {
+        border-top: rem(5) solid var(--facebook);
+    }
+
+    &--twitter {
+        border-top: rem(5) solid var(--twitter);
+    }
+
+    &--instagram {
+        padding-top: rem(30);
+        &::before { // pseudo-element to work around putting a linear gradient on a border
+            content: '';
+            position: absolute; // must do absolute because it will continue up heiarchy until width is stated
+            left: 0;
+            top: 0;
+            height: rem(5);
+            width: 100%;
+            background: linear-gradient(
+                225deg, 
+                var(--instagram-end) 0%, 
+                var(--instagram-middle), 
+                var(--instagram-start) 100%);
+            display: block;
+        }
+        // border-top: rem(5) solid var(--instagram);
+    }        
+
+    &--youtube {
+        border-top: rem(5) solid var(--youtube);
+    }
+
+
+    &__platform {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: rem(28);
+        margin-top: rem(5);
+        height: rem(20); // aligns the platforms based on image height
+    }
+
+    &__subtitle {
+        font-size: rem(14);
+        font-weight: 700;
+    }
+
+    &__icon {
+        margin-right: rem(8);
+        
+        &--facebook {
+            
+        }
+
+        &--twitter {
+
+        }
+
+        &--instagram {
+
+        }        
+
+        &--youtube {
+
+        }
+    }
+
+    &__username {
+        font-size: rem(12);
+        font-weight: bold;
+    }
+    
+    &__followers {
+        margin-bottom: rem(25);
+    }
+
+    &__count {
+        color: var(--light-bg);
+        font-weight: 700;
+        letter-spacing: rem(-2);
+        line-height: 1;
+        margin-bottom: rem(4);
+        &--big {
+            font-size: rem(56);
+            font-weight: bold;
+        }
+        &--small {
+            font-size: rem(32);
+        }
+    }
+
+    &__label {
+        font-size: rem(12);
+        letter-spacing: rem(5);
+        font-weight: 400;
+        color: var(--dark-text1);
+        text-transform: uppercase;
+        margin-top: rem(9);
+    }
+
+    &__change {
+        display: flex;
+        align-items: center; // prevents images from stretching in flex
+        justify-content: center; // places the content to the center
+        font-size: rem(12);
+        font-weight: 700;
+
+        &--up {
+            // @extend .card__change can allow you to not have to
+            // write both classes in the html header but is not recommended
+            color: var(--limegreen);
+        }
+
+        &--down {
+            color: var(--brightred);
+        }
+
+        img {
+            margin-right: rem(4);
+        }
+
+        &__number {
+        }
+    }
 }

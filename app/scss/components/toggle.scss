@@ -1,26 +1,87 @@
 @use '../util' as *; // looking for variable names in the util folder?
+// https://codepen.io/SaraSoueidan/pen/jpBbrq
 
-.toggle {
+.toggle { // toggle
+    display: grid; // looks the same as mobile and desktop
+    grid-template-columns: 1fr rem(64) 1fr;
+    grid-template-rows: repeat (2, 1fr);
     border: none;
+    gap: rem(4.8) rem(8); // top bottom gap
+    
+    label { // & inherits label
+        font-size: rem(14);
+        align-self: center;
+        &[for='dark']{
+            grid-column: 1 / 2;
+            justify-self: end;
+        }
+        &[for='system']{
+            grid-column: 1 / 4;
+            grid-row: 2 / 3;
+            justify-self: center;
+            align-self: start;
+        }
+        &[for='light']{
+            grid-column: 3 / 4;
+        }
+    }
 
     &__wrapper { // toggle__wrapper
+        position: relative;
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        height: rem(24);
+        width: 100%;
     }
 
     input[type="radio"]{
+        opacity: 0;
+        margin: 0 -2px 0 -2px;
+        width: rem(20);
+        height: rem(24);
+
+        &:focus ~ .toggle__button {
+            border: 2pm solid white;
+        }
     }
 
     &__background {
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        border-radius: rem(12);
+        overflow: hidden;
+        background: linear-gradient(
+            225deg,
+            var(--toggle-bg-end) 0%,
+            var(--toggle-bg-start) 98.02%
+        );
+        pointer-events: none;
     }
 
 
     &__button {
-        width: rem(16);
-        height: rem(16);
+        position: absolute;
+        left: rem(3);
+        right: 100%;
+        top: rem(3);
+        width: rem(18);
+        height: rem(18);
         border-radius: 50%;
-        background-color: var(--toggle);
+        background-color: var(--dark-bg);
+        transition: all 150ms ease-in-out;
     }
 
-    label {
-        
+    #light:checked ~ .toggle__button { // if light is selected in the browser changes button
+        left: calc(100% - 21px);
+        right: 3px;
+    }
+
+    #system:checked ~ .toggle__button {
+        left: 50%;
+        right: auto;
+        transform: translate(-50%);
     }
 }

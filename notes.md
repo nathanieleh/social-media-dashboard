@@ -16,3 +16,22 @@ CSS Variables (custom properties) -- https://css-tricks.com/updating-a-css-varia
 Accessibility
 - Use correct heading tags
 - Screenreader-only text for card titles/username -- https://www.accessibility-developer-guide.com/examples/hiding-elements/visually/
+
+BEM = Block Element Modifier
+
+- Examples
+Block = card
+Element = icon, platform, count, change, etc.
+Modifier = facebook, twitter, etc.
+
+card
+card__icon
+card__icon--facebook
+card__username
+
+card__count
+card__count--big, card__count--small
+card__label
+
+card__change
+card__change--up, card__change--down
