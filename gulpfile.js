@@ -9,7 +9,7 @@ const terser = require('gulp-terser');
 const browserSync = require('browser-sync').create();
 
 // use dart-sass for @use
-//sass.compiler = require('dart-sass');
+// sass.compiler = require('dart-sass');
 
 // Sass task
 function scssTask() {

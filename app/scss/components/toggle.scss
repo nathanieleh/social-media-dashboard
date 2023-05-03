@@ -3,45 +3,46 @@
 
 .toggle { // toggle
     display: grid; // looks the same as mobile and desktop
-    grid-template-columns: 1fr rem(64) 1fr;
-    grid-template-rows: repeat (2, 1fr);
-    border: none;
+    grid-template-columns: 1fr rem(48);
     gap: rem(4.8) rem(8); // top bottom gap
+    border: none;
+    margin: 0;
     
     label { // & inherits label
         font-size: rem(14);
-        align-self: center;
+        color: var(--toggle);
+        // grid-column: 1 / 2;
+        
         &[for='dark']{
             grid-column: 1 / 2;
-            justify-self: end;
+            line-height: rem(24);
+            margin-right: rem(13);
         }
-        &[for='system']{
-            grid-column: 1 / 4;
-            grid-row: 2 / 3;
-            justify-self: center;
-            align-self: start;
-        }
-        &[for='light']{
-            grid-column: 3 / 4;
-        }
+        // &[for='system']{
+        //     grid-column: 1 / 4;
+        //     grid-row: 2 / 3;
+        //     justify-self: center;
+        //     align-self: start;
+        // }
+        // &[for='light']{
+        //     grid-column: 3 / 4;
+        // }
     }
 
     &__wrapper { // toggle__wrapper
         position: relative;
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
+        // grid-column: 2 / 3;
         height: rem(24);
-        width: 100%;
     }
 
     input[type="radio"]{
         opacity: 0;
-        margin: 0 -2px 0 -2px;
-        width: rem(20);
+        margin: 0 rem(-2) 0 rem(-2);
+        width: rem(24);
         height: rem(24);
 
         &:focus ~ .toggle__button {
-            border: 2pm solid white;
+            border: 2px solid white;
         }
     }
 
@@ -53,11 +54,7 @@
         top: 0;
         border-radius: rem(12);
         overflow: hidden;
-        background: linear-gradient(
-            225deg,
-            var(--toggle-bg-end) 0%,
-            var(--toggle-bg-start) 98.02%
-        );
+        background: var(--toggle-bg);
         pointer-events: none;
     }
 
@@ -70,7 +67,7 @@
         width: rem(18);
         height: rem(18);
         border-radius: 50%;
-        background-color: var(--dark-bg);
+        background-color: var(--toggle-button);
         transition: all 150ms ease-in-out;
     }
 

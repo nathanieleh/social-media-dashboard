@@ -17,12 +17,18 @@
 .card { // do not do more than 3 layers of nestings
     position: relative;
     overflow: hidden;
-    background: var(--dark-card);
-    color: var(--dark-text1);
+    background: var(--card-bg);
+    color: var(--text-color1);
     padding: rem(25);
     border-radius: rem(5);
     text-align: center;
+    transition: background 150ms ease-in-out;
+    cursor: pointer;
     // flex: 1; each card has the same ratio divided amongst eachother
+
+    &:hover {
+        background: var(--card-hover);
+    }
 
     &--facebook {
         border-top: rem(5) solid var(--facebook);
@@ -100,7 +106,7 @@
     }
 
     &__count {
-        color: var(--light-bg);
+        color: var(--text-color2);
         font-weight: 700;
         letter-spacing: rem(-2);
         line-height: 1;
@@ -118,7 +124,7 @@
         font-size: rem(12);
         letter-spacing: rem(5);
         font-weight: 400;
-        color: var(--dark-text1);
+        color: var(--text-color1);
         text-transform: uppercase;
         margin-top: rem(9);
     }

@@ -4,6 +4,8 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: rem(36);
+    color: var(--text-color1);
+    font-weight: 700;
 
     @include breakpoint(medium) {
         justify-content: space-between;
@@ -19,8 +21,6 @@
 
     &__subtitle { // called a selector
         font-size: rem(14);
-        font-weight: 700;
-        color: var(--dark-text1);
     }
 
     &__container {

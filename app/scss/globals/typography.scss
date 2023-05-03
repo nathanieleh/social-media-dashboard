@@ -8,9 +8,15 @@ h1, h2, h3 {
 h1 {
     font-size: rem(24);
     margin-bottom: rem(3);
+    color: var(--text-color2);
     @include breakpoint(large){
         font-size: rem(28);
     }
+}
+
+h2 {
+    font-size: rem(24);
+    margin-bottom: rem(24); // places 24 px of space on botton
 }
 
 a, a:visited, a:active {
