@@ -58,3 +58,6 @@ function watchTask() { // will keep running
 
 // Defualt Gulp Task
 exports.default = series(scssTask, jsTask, browserSyncServe, watchTask); // this is what gulp will run when you run gulp
+
+// this is what gulp will run when the cloud server is running
+exports.build = series(scssTask, jsTask);
