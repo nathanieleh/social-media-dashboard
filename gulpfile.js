@@ -15,7 +15,7 @@ const browserSync = require('browser-sync').create();
 function scssTask() {
     return src('app/scss/style.scss', { sourcemaps: true }) // takes main scss file and modifies this file
         .pipe(sass()) // pipe runs functions one after the other (function in gulp) compiles sass to css
-        .pipe(postcss([autoprefixer(), cssnano()])) // autoprefixer adds browser prefixes to support older browsers and cssnano minimizes the css file
+        //.pipe(postcss([autoprefixer(), cssnano()])) // autoprefixer adds browser prefixes to support older browsers and cssnano minimizes the css file
         .pipe(dest('dist', { sourcemaps: '.' })); // sets destination of final compiled css file into dist folder, right means set the same location as the file we specified
 }
 
